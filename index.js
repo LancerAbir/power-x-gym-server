@@ -59,6 +59,23 @@ client.connect((err) => {
             res.send(documents);
         });
     });
+
+    //** Get --> Insert addMember & Save in Database */
+    // app.get('/isUser', (req, res) => {
+    // 	const email = req.query.email;
+    // 	const data = y.email;
+    // 	powerXGym.find({ data: email }).toArray((err, document) => {
+    // 		res.send(document);
+    // 	});
+    // });
+
+    //** GET --> Show All Single Service Data */
+    app.get("/isUser", (req, res) => {
+        console.log(req.query.email);
+        powerXGym.find({ email: req.query.email }).toArray((err, documents) => {
+            res.send(documents);
+        });
+    });
 });
 //https://shrouded-plains-89752.herokuapp.com/
 //** App Listen */
