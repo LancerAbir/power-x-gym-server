@@ -47,7 +47,6 @@ client.connect((err) => {
     //** POST --> Insert addMember & Save in Database */
     app.post("/addMember", (req, res) => {
         const addMemberShip = req.body;
-        console.log(addMemberShip);
         powerXGym.insertOne(addMemberShip).then((result) => {
             console.log(result.insertedCount);
             res.send(result.insertedCount > 0);
@@ -61,6 +60,6 @@ client.connect((err) => {
         });
     });
 });
-
+//https://shrouded-plains-89752.herokuapp.com/
 //** App Listen */
-app.listen(process.env.PORT || port);
+https: app.listen(process.env.PORT || port);
