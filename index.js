@@ -44,12 +44,20 @@ client.connect((err) => {
         .collection(`${process.env.DB_COLLECTION}`);
     console.log("Database Has Successfully Connected");
 
-    //** POST --> Insert Single Service Data & Save in Database */
+    //** POST --> Insert addMember & Save in Database */
     app.post("/addMember", (req, res) => {
         const addMemberShip = req.body;
+        console.log(addMemberShip);
         powerXGym.insertOne(addMemberShip).then((result) => {
             console.log(result.insertedCount);
             res.send(result.insertedCount > 0);
+        });
+    });
+
+    //** GET --> Show All Member Data */
+    app.get("/showMember", (req, res) => {
+        powerXGym.find({}).toArray((error, documents) => {
+            res.send(documents);
         });
     });
 });
