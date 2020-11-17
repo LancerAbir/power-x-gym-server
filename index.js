@@ -69,14 +69,9 @@ client.connect((err) => {
     });
 
     //** DELETE --> Delete only Single Member Data */
-    // app.delete("/userDelete/:id", (req, res) => {
-    //     powerXGym.deleteOne({ _id: req.params.id }).then((result) => {
-    //         console.log(result);
-    //     });
-    // });
-
     app.get("/userDelete/:id", (req, res) => {
         const userId = ObjectID(req.params.id);
+        console.log(userId);
         powerXGym.find({ _id: userId }).toArray((err, documents) => {
             res.send(documents[0]);
             console.log(documents[0]);
